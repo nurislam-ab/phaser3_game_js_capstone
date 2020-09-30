@@ -3,13 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "private": true,
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "jest",
-    "watch": "webpack --watch",
-    "dev": "webpack --mode development",
-    "build": "webpack --mode production",
-    "start": "webpack-dev-server --mode development --open"
+    "build": "webpack --config webpack/prod.js ",
+    "start": "webpack-dev-server --config webpack/base.js --open",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -34,7 +32,8 @@
     "stylelint": "^13.3.3",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-csstree-validator": "^1.8.0",
-    "stylelint-scss": "^3.17.2"
+    "stylelint-scss": "^3.17.2",
+    "file-loader": "^6.1.0"
   },
   "dependencies": {
     "jest": "^26.4.2",
@@ -42,6 +41,7 @@
     "phaser": "^3.24.1",
     "phaser3-rex-plugins": "^1.1.29",
     "regenerator-runtime": "^0.13.7",
+    "terser-webpack-plugin": "^4.2.2",
     "webpack-merge": "^5.1.4"
   }
 }
