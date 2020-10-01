@@ -14,7 +14,7 @@ export default class GameScene extends Phaser.Scene {
     this.load.tilemapTiledJSON('map', 'src/assets/map/map.json');
 
     // our two characters
-    this.load.spritesheet('player', 'src/assets/RPG_assets.png', { frameWidth: 16, frameHeight: 16 });
+    this.load.spritesheet('player', 'src/assets/sprites/RPG_assets.png', { frameWidth: 16, frameHeight: 16 });
   }
 
   create() {
@@ -38,11 +38,11 @@ export default class GameScene extends Phaser.Scene {
     this.cameras.main.startFollow(this.player);
     this.cameras.main.roundPixels = true;
 
-    // animation with key 'left', we don't need left and right as 
+    // animation with key 'left', we don't need left and right as
     // we will use one and flip the sprite
     this.anims.create({
       key: 'left',
-      frames: this.anims.generateFrameNumbers('player', { frames: [1, 7, 1, 13]}),
+      frames: this.anims.generateFrameNumbers('player', { frames: [1, 7, 1, 13] }),
       frameRate: 10,
       repeat: -1,
     });
@@ -57,14 +57,14 @@ export default class GameScene extends Phaser.Scene {
 
     this.anims.create({
       key: 'up',
-      frames: this.anims.generateFrameNumbers('player', { frames: [2, 8, 2, 14]}),
+      frames: this.anims.generateFrameNumbers('player', { frames: [2, 8, 2, 14] }),
       frameRate: 10,
       repeat: -1,
     });
 
     this.anims.create({
       key: 'down',
-      frames: this.anims.generateFrameNumbers('player', { frames: [ 0, 6, 0, 12 ] }),
+      frames: this.anims.generateFrameNumbers('player', { frames: [0, 6, 0, 12] }),
       frameRate: 10,
       repeat: -1,
     });
