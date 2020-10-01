@@ -68,6 +68,8 @@ export default class GameScene extends Phaser.Scene {
       frameRate: 10,
       repeat: -1,
     });
+
+    this.physics.add.collider(this.player, obstacles);
   }
 
   update() {
