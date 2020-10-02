@@ -37,11 +37,19 @@ class GameUIScene extends Phaser.Scene {
     this.menus.add(this.actionsMenu);
     this.menus.add(this.enemiesMenu);
 
-    this.battleScene = this.scene.get('BattleScene');
+    this.battleScene = this.scene.get('Battle');
+    this.remapHeroes();
+    this.remapEnemies();
   }
 
   remapHeroes() {
-    
+    let heroes = this.battleScene.heroes;
+    this.heroesMenu.remap(heroes);
+  }
+
+  remapEnemies() {
+    let enemies = this.battleScene.enemies;
+    this.enemiesMenu.remap(enemies);
   }
 }
 
