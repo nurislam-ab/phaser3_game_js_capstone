@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 
-export default class GameScene extends Phaser.Scene {
+class GameScene extends Phaser.Scene {
   constructor() {
     super('Game');
   }
@@ -109,4 +109,15 @@ export default class GameScene extends Phaser.Scene {
       this.player.anims.stop();
     }
   }
+
+  onMeetEnemy(player, zone) {
+    zone.x = Phaser.Math.RND.between(0, this.physics.world.bounds.width);
+    zone.y = Phaser.Math.RND.between(0, this.physics.world.bounds.height);
+
+    this.cameras.main.shake(300);
+    // camera.flash(duration);
+    // camera.fade(duration);
+  }
 }
+
+export default GameScene;
