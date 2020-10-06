@@ -3,8 +3,12 @@ import Phaser from 'phaser';
 export default {
   type: Phaser.AUTO,
   parent: 'phaser-container',
-  width: 1280,
-  height: 600,
+  width: 1364,
+  height: 632,
+  dom: {
+    createContainer: true,
+  },
+  mode: Phaser.Scale.FIT,
   autoCenter: Phaser.Scale.CENTER_BOTH,
   pixelArt: true,
   physics: {
