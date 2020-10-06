@@ -1,13 +1,16 @@
-import Phaser from 'phaser';
-import Unit from './unit';
+const Player = (() => {
+  let name = '';
+  const setName = (newName) => {
+    name = newName;
+    return `${name}`;
+  };
 
-class Player extends Unit {
-  constructor(scene, x, y, texture, frame, type, hp, damage) {
-    super(scene, x, y, texture, frame, type, hp, damage);
-    this.flipX = true;
+  const getName = () => name;
 
-    this.setScale(2);
-  }
-}
+  return {
+    setName,
+    getName,
+  };
+})();
 
 export default Player;
