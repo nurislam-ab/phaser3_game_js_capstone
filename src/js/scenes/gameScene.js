@@ -1,33 +1,31 @@
 import Phaser from 'phaser';
+import BattleScene from './battleScene';
+import GameUIScene from './gameUIScene';
+import Score from '../objects/score';
 
 class GameScene extends Phaser.Scene {
   constructor() {
     super('Game');
   }
 
-  preload() {
-    // this.load.image('background', 'src/assets/images/background.jpg');
-    // map tiles
-    this.load.image('tiles', 'src/assets/map/spritesheet.png');
-
-    // map in json format
-    this.load.tilemapTiledJSON('map', 'src/assets/map/map.json');
-
-    // our two characters
-    this.load.spritesheet('player', 'src/assets/sprites/RPG_assets.png', { frameWidth: 16, frameHeight: 16 });
-  }
-
   create() {
-    // this.add.image(400, 300, 'background');
     const map = this.make.tilemap({ key: 'map' });
-
     const tiles = map.addTilesetImage('spritesheet', 'tiles');
-
     const grass = map.createStaticLayer('Grass', tiles, 0, 0);
     const obstacles = map.createStaticLayer('Obstacles', tiles, 0, 0);
     obstacles.setCollisionByExclusion([-1]);
 
+    this.graphics = this.add.graphics();
+    this.graphics.lineStyle(1, 0xffffff, 0.8);
+    this.graphics.fillStyle(0x031f4c, 0.3);
+    this.graphics.strokeRect(5, 5, 100, 15);
+    this.graphics.fillRect(5, 5, 100, 15);
+
+    this.scoreText = this.add.text(6, 6, `Score: ${Score.getScore()}`, { fontSize: '14px', fill: '#fff' });
+
     this.player = this.physics.add.sprite(50, 100, 'player', 6);
+    this.player.setScale(0.5);
+
     this.physics.world.bounds.width = map.widthInPixels;
     this.physics.world.bounds.height = map.heightInPixels;
     this.player.setCollideWorldBounds(true);
@@ -35,11 +33,10 @@ class GameScene extends Phaser.Scene {
     this.cursors = this.input.keyboard.createCursorKeys();
 
     this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
+    this.cameras.main.zoom = 2;
     this.cameras.main.startFollow(this.player);
     this.cameras.main.roundPixels = true;
 
-    // animation with key 'left', we don't need left and right as
-    // we will use one and flip the sprite
     this.anims.create({
       key: 'left',
       frames: this.anims.generateFrameNumbers('player', { frames: [1, 7, 1, 13] }),
@@ -47,7 +44,6 @@ class GameScene extends Phaser.Scene {
       repeat: -1,
     });
 
-    // animation with key 'right'
     this.anims.create({
       key: 'right',
       frames: this.anims.generateFrameNumbers('player', { frames: [1, 7, 1, 13] }),
@@ -77,20 +73,26 @@ class GameScene extends Phaser.Scene {
       const y = Phaser.Math.RND.between(0, this.physics.world.bounds.height);
       this.spawns.create(x, y, 20, 20);
     }
+
     this.physics.add.overlap(this.player, this.spawns, this.onMeetEnemy, false, this);
+
+    this.sys.events.on('wake', this.wake, this);
+  }
+
+  getEnemySprite() {
+    this.enemy_sprites = ['dragonblue', 'dragonOrrange'];
+    return this.enemy_sprites[Math.floor(Math.random() * this.enemy_sprites.length)];
   }
 
   update() {
     this.player.body.setVelocity(0);
 
-    // Horizontal movement
     if (this.cursors.left.isDown) {
       this.player.body.setVelocityX(-80);
     } else if (this.cursors.right.isDown) {
       this.player.body.setVelocityX(80);
     }
 
-    // Vertical movement
     if (this.cursors.up.isDown) {
       this.player.body.setVelocityY(-80);
     } else if (this.cursors.down.isDown) {
@@ -110,13 +112,25 @@ class GameScene extends Phaser.Scene {
     }
   }
 
+  wake() {
+    this.cursors.left.reset();
+    this.cursors.right.reset();
+    this.cursors.up.reset();
+    this.cursors.down.reset();
+  }
+
   onMeetEnemy(player, zone) {
     zone.x = Phaser.Math.RND.between(0, this.physics.world.bounds.width);
     zone.y = Phaser.Math.RND.between(0, this.physics.world.bounds.height);
 
     this.cameras.main.shake(300);
-    // camera.flash(duration);
-    // camera.fade(duration);
+
+    this.input.stopPropagation();
+    this.scene.add('Battle', BattleScene);
+    this.scene.add('GameUI', GameUIScene);
+
+    this.scene.sleep('Game');
+    this.scene.launch('Battle');
   }
 }
 
