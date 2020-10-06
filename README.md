@@ -2,8 +2,6 @@
 
 Building RPG game using JavaScript and Phaser 3 to build the entire game manipulating DOM elements using JS modules.
 
-![screenshot](./src/assets/images/game_screenshot.png)
-
 * [Boot scene](src/assets/images/1.png)
 * [Main menu](src/assets/images/2.png)
 * [Battle scene](src/assets/images/3.png)
