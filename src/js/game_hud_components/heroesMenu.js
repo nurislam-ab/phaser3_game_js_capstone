@@ -1,4 +1,3 @@
-import Phaser from 'phaser';
 import Menu from './menu';
 
 class HeroesMenu extends Menu {

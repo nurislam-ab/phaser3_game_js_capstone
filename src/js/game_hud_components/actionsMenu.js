@@ -1,4 +1,3 @@
-import Phaser from 'phaser';
 import Menu from './menu';
 
 class ActionsMenu extends Menu {
@@ -8,7 +7,7 @@ class ActionsMenu extends Menu {
   }
 
   confirm() {
-    // when player does smotheing do smth
+    this.scene.events.emit('SelectEnemies');
   }
 }
 
