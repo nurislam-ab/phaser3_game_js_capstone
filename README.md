@@ -21,7 +21,7 @@ All the fears are controlled by the Thing. He could read minds, make the incepti
 
 Even all the united power of the mages and a lot of different species could not conquer the Thing. Species live like in a dark cloudy world where everything is connected with the pain and depression. 
 
-The Thing has three servants: The Zombie Pumpkin, Dragon, and Big Cat.
+The Thing has three servants: The Zombie Pumpkin, Dragon, and Bird.
 
 Many years there were no heroes to conquer the Thing and his servants. However, some rebels learnt to control their fears and imaginations, to alter the thoughts for the Thing. The most powerful resistance was shown by the human born boy called Warrior and the Mage from the magic world. And they started hunting for the servants of the Thing...
 
@@ -53,6 +53,16 @@ Many years there were no heroes to conquer the Thing and his servants. However, 
 - Run npm install to run all of the dependencies into your local repository
 - Run the command 'run npm start' to start the game running into your local machine
 - open http://localhost:8080/ on your browser
+
+## Acknowledgments
+- Red background by Pxfuel
+- Castle illustration by BelleDeesse
+- Bird by StarGladeVintage
+- Dragon by Pinclipart
+- Zombie pumpkin by Pxfuel
+- Buttons sprites Nia Mi
+- Background sound by Epic Sounds
+- Bat animation video by Unknown author
 
 ## Authors
 
