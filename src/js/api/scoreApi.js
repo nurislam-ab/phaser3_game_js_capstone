@@ -3,26 +3,6 @@ import 'regenerator-runtime';
 const ScoreApi = (() => {
   const apiRequest = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/NySOGAxXsdj7kZye7rWo/scores/';
 
-  const initData = async () => {
-    const body = JSON.stringify({
-      user: 'Dragon fighter',
-      score: 10,
-    });
-
-    const data = {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body,
-    };
-
-    const response = await fetch(apiRequest, data);
-    const result = await response.json();
-    return result.result;
-  };
-
   const postData = async (user, score) => {
     const body = JSON.stringify({ user, score });
     const data = {
@@ -66,9 +46,7 @@ const ScoreApi = (() => {
   };
 
   return {
-    initData,
     postData,
-    sort,
     getData,
   };
 })();
