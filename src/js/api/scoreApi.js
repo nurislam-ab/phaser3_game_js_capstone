@@ -1,11 +1,6 @@
 import 'regenerator-runtime';
 
-// const fetch = require('node-fetch');
-
 const ScoreApi = (() => {
-  // const proxyUrl = '';
-  // const baseUrl = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games';
-  // const gameId = 'NySOGAxXsdj7kZye7rWo';
   const apiRequest = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/NySOGAxXsdj7kZye7rWo/scores/';
 
   const initData = async () => {
