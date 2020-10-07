@@ -62,18 +62,18 @@ class GameUIScene extends Phaser.Scene {
     this.graphics = this.add.graphics();
     this.graphics.lineStyle(1, 0xffffff);
     this.graphics.fillStyle(0x031f4c, 1);
-    this.graphics.strokeRect(20, 430, 240, 170);
-    this.graphics.fillRect(20, 430, 240, 170);
-    this.graphics.strokeRect(280, 430, 240, 170);
-    this.graphics.fillRect(280, 430, 240, 170);
-    this.graphics.strokeRect(540, 430, 240, 170);
-    this.graphics.fillRect(540, 430, 240, 170);
+    this.graphics.strokeRect(60, 430, 240, 170);
+    this.graphics.fillRect(60, 430, 240, 170);
+    this.graphics.strokeRect(320, 430, 240, 170);
+    this.graphics.fillRect(320, 430, 240, 170);
+    this.graphics.strokeRect(580, 430, 240, 170);
+    this.graphics.fillRect(580, 430, 240, 170);
 
     this.menus = this.add.container();
 
-    this.heroesMenu = new HeroesMenu(550, 435, this);
-    this.actionsMenu = new ActionsMenu(290, 435, this);
-    this.enemiesMenu = new EnemiesMenu(30, 435, this);
+    this.heroesMenu = new HeroesMenu(600, 435, this);
+    this.actionsMenu = new ActionsMenu(340, 435, this);
+    this.enemiesMenu = new EnemiesMenu(80, 435, this);
 
     this.currentMenu = this.actionsMenu;
 
