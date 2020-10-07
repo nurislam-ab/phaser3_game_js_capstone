@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import Player from '../objects/player';
+import { setName } from '../objects/player';
 
 class FormScene extends Phaser.Scene {
   constructor() {
@@ -29,7 +29,7 @@ class FormScene extends Phaser.Scene {
           element.removeListener('click');
 
           element.setVisible(false);
-          Player.setName(inputName.value);
+          setName(inputName.value);
 
           this.input.stopPropagation();
 

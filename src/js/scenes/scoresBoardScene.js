@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import config from '../config/config';
 import Button from '../objects/button';
-import ScoreApi from '../api/scoreApi';
+import { getData } from '../api/scoreApi';
 
 class ScoreBoardScene extends Phaser.Scene {
   constructor() {
@@ -14,7 +14,7 @@ class ScoreBoardScene extends Phaser.Scene {
     this.title = this.add.text(240, 100, 'Leaderboard', { fontSize: '40px' });
     this.zone = this.add.zone(config.width / 2, config.height / 2, config.width, config.height);
 
-    ScoreApi.getData()
+    getData()
       .then(scores => {
         const arr = [];
         scores.map((user, i) => {

@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import BattleScene from './battleScene';
 import GameUIScene from './gameUIScene';
-import Score from '../objects/score';
+import { getScore } from '../objects/score';
 
 class GameScene extends Phaser.Scene {
   constructor() {
@@ -22,7 +22,7 @@ class GameScene extends Phaser.Scene {
     this.graphics.strokeRect(5, 5, 100, 15);
     this.graphics.fillRect(5, 5, 100, 15);
 
-    this.scoreText = this.add.text(6, 6, `Score: ${Score.getScore()}`, { fontSize: '14px', fill: '#fff' });
+    this.scoreText = this.add.text(6, 6, `Score: ${getScore()}`, { fontSize: '14px', fill: '#fff' });
 
     this.player = this.physics.add.sprite(50, 100, 'player', 6);
     this.player.setScale(0.5);

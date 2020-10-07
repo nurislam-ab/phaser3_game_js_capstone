@@ -1,27 +1,15 @@
-const Score = (() => {
-  let score = 0;
-  let hp;
+let score = 0;
 
-  const getScore = () => score;
+const getScore = () => score;
 
-  const getHP = () => hp;
+const incScore = (points) => {
+  score += points;
+  return `${score}`;
+};
 
-  const incScore = (points) => {
-    score += points;
-    return `${score}`;
-  };
+const resetScore = () => {
+  score = 0;
+  return `${score}`;
+};
 
-  const resetScore = () => {
-    score = 0;
-    return `${score}`;
-  };
-
-  return {
-    getScore,
-    incScore,
-    resetScore,
-    getHP,
-  };
-})();
-
-export default Score;
+export { getScore, incScore, resetScore };

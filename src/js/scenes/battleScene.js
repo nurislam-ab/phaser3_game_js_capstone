@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import Character from '../objects/character';
 import Enemy from '../objects/enemy';
-import Score from '../objects/score';
+import { incScore } from '../objects/score';
 
 class BattleScene extends Phaser.Scene {
   constructor() {
@@ -100,17 +100,17 @@ class BattleScene extends Phaser.Scene {
       this.scene.stop('Game');
       this.scene.start('GameOver');
     } else if (stat === 'victory') {
-      Score.incScore(20);
+      incScore(20);
       this.scene.wake('Game');
     }
   }
 
   startBattle() {
     this.score = 0;
-    const warrior = new Character(this, 600, 200, 'player', 'Warrior', 12, 25);
+    const warrior = new Character(this, 600, 200, 'player', 'Warrior', 24, 20);
     this.add.existing(warrior);
 
-    const mage = new Character(this, 600, 300, 'mage', 'Mage', 12, 30);
+    const mage = new Character(this, 600, 300, 'mage', 'Mage', 18, 30);
     this.add.existing(mage);
 
     const zombiePumpkin = new Enemy(this, 100, 200, 'zombie_pumpkin', 'Zombie Pumpkin', 50, 6);
