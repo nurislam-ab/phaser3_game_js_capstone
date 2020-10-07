@@ -2,6 +2,8 @@
 
 Building RPG game using JavaScript and Phaser 3 to build the entire game manipulating DOM elements using JS modules.
 
+## Screenshots
+
 * [Boot scene](src/assets/images/1.png)
 * [Main menu](src/assets/images/2.png)
 * [Battle scene](src/assets/images/3.png)
@@ -28,9 +30,23 @@ Many years there were no heroes to conquer the Thing and his servants. However, 
 
 ## How to play
 
-- Go to the portals to reach the clones of the servants using right, left, up and down keys
-- Attack the clones by pressing scape bar or left key after selection of the enemy
+- Click the Play button in the main menu
+![Play](src/assets/images/1.jpg)
 
+- Enter your name
+![Name form](src/assets/images/2.jpg)
+
+- Go to the portals to reach the clones of the servants using right, left, up and down keys in the keyboard
+![Game scene](src/assets/images/3.jpg)
+
+- Select the player with whom to attack the Thing's servants
+![Player selection](src/assets/images/4.jpg)
+
+- Select the servant to attack 
+![Select the servant](src/assets/images/5.jpg)
+
+- Attack the servant by pressing the spacebar or left key
+![Attack the servant](src/assets/images/6.jpg)
 
 ## Built With
 
@@ -55,6 +71,7 @@ Many years there were no heroes to conquer the Thing and his servants. However, 
 - open http://localhost:8080/ on your browser
 
 ## Acknowledgments
+
 - Red background by Pxfuel
 - Castle illustration by BelleDeesse
 - Bird by StarGladeVintage
